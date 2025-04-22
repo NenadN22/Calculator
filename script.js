@@ -12,26 +12,27 @@ function divide (a,b) {
     return a / b;
 }
 
-let number;
+let number = "";
 let operator;
 let anotherNumber;
+
 let display = document.querySelector('.display')
 
-function Operate(operator,number,anotherNumber) {
-    
-
-}
-function populateDisplay () {
-   let numbers = document.querySelectorAll('.number')
-    numbers.forEach(number => {
-        number.addEventListener('click', () => {
-
-            display.innerHTML += number.textContent;
-            console.log(number)
-            
-
-        }) 
-        
+let numbers = document.querySelectorAll('.number')
+numbers.forEach(clickedNumber => 
+    clickedNumber.addEventListener('click', ()=> {
+        number += clickedNumber.textContent
+        console.log(number)
+        populateDisplay()
     })
+    
+)
+function populateDisplay () {
+    display.innerHTML = number
+    console.log(display)
+  
 }
-populateDisplay();
+
+function Operate(operator,number,anotherNumber) {
+
+}
