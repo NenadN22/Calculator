@@ -29,7 +29,9 @@ allOperators.forEach(chosenOperator => {
 numbers.forEach(number => {
     number.addEventListener('click', () => {
         if(!operator) {
+            number 
             firstChosenNumber += number.textContent
+            firstChosenNumber 
             console.log(firstChosenNumber)
 
         } else {
@@ -40,13 +42,18 @@ numbers.forEach(number => {
     })
 })
 
-
+let result;
 function operate (firstNumber,operator,secondNumber) {
+    firstNumber = parseInt(firstNumber)
+    secondNumber = parseInt(secondNumber)
     if (operator === "+") {
-        let result;
+       
         result = add(firstNumber,secondNumber)
-        firstChosenNumber
+        
+        
     }
+    firstChosenNumber = result
+    console.log(typeof(firstChosenNumber))
     populateDisplay()
 
 }
