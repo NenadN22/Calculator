@@ -37,10 +37,30 @@ allNumbers.forEach(numbers => {
         populateDisplay()
     })
 })
-
+let result;
+let equal = document.querySelector(".equal")
+equal.addEventListener('click', () => {
+    operate(firstGlobalNumber,secondGlobalNumber)
+})
 console.log(firstGlobalNumber)
 console.log(secondGlobalNumber)
 function operate(firstNumber,secondNumber) {
+    firstNumber = parseInt(firstGlobalNumber)
+    secondNumber = parseInt(secondGlobalNumber)
+    if(operator == "+") {
+        result = add(firstNumber,secondNumber)
+    } else if (operator == "-") {
+        result = subtract(firstNumber,secondNumber)
+    } else if (operator == "x") {
+        result = multiply(firstNumber,secondNumber)
+    } else if ( operator == "÷") {
+        result = divide(firstNumber,secondNumber)
+    }
+    firstGlobalNumber = result;
+    console.log(typeof(firstGlobalNumber))
+    operator = ""
+    secondGlobalNumber = ""
+    populateDisplay()
 
 }
 function populateDisplay(){
