@@ -11,7 +11,9 @@ function multiply (a,b) {
 function divide (a,b) {
     return a / b;
 }
-let del  = document.querySelector('.delete')
+let dot = document.querySelector('.dot');
+let clear = document.querySelector('.clear');
+let del  = document.querySelector('.delete');
 let firstGlobalNumber = "";
 let globalOperator;
 let secondGlobalNumber = "";
@@ -23,10 +25,17 @@ allOperators.forEach(operators => {
     operators.addEventListener('click',() => {
         operator = operators.textContent;
         console.log(operator);
+        dot.disabled = false;
         populateDisplay();
     })
 })
-  del.addEventListener('click', () => {
+clear.addEventListener('click',() => {
+    firstGlobalNumber = "";
+    operator = "";
+    secondGlobalNumber = "";
+    populateDisplay();
+})
+del.addEventListener('click', () => {
     if(!operator) {
         firstGlobalNumber = firstGlobalNumber.slice(0,firstGlobalNumber.length - 1)
         populateDisplay()
@@ -34,6 +43,22 @@ allOperators.forEach(operators => {
         secondGlobalNumber = secondGlobalNumber.slice(0,secondGlobalNumber.length - 1)
         populateDisplay()
     }
+})
+function disableElement () {
+    dot.disabled = true;
+}
+
+dot.addEventListener('click', () => {
+    if(!operator) {
+        firstGlobalNumber += dot.textContent
+        disableElement()   
+    } else {
+        secondGlobalNumber += dot.textContent
+        disableElement()
+       
+    }
+    
+     populateDisplay()
 })
 allNumbers.forEach(numbers => {
     numbers.addEventListener('click', () => {
