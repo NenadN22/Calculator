@@ -38,8 +38,16 @@ clear.addEventListener('click',() => {
 del.addEventListener('click', () => {
     if(!operator) {
         firstGlobalNumber = firstGlobalNumber.slice(0,firstGlobalNumber.length - 1)
+        console.log("ovde sam")
+        console.log(firstGlobalNumber)
         populateDisplay()
-    } else if (firstGlobalNumber != "") {
+    } else if (firstGlobalNumber != "" && secondGlobalNumber == "") {
+        operator = operator.slice(0,operator.length - 1)
+         console.log("ovde sam")
+        console.log(operator)
+        populateDisplay()
+    } else if (firstGlobalNumber != "" && operator != "") {
+        console.log('ovde sam')
         secondGlobalNumber = secondGlobalNumber.slice(0,secondGlobalNumber.length - 1)
         populateDisplay()
     }
